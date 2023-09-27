@@ -1,0 +1,33 @@
+/*index*/
+.indexbody{
+    text-align:center;
+}
+.indexdiva{
+    background-color:#ABCDEF;
+    font-size:50px;
+    width:100%px;
+    border:dotted;
+}
+.indexdivb{
+    background-color:#f1f1f1;
+    font-size:12px;
+    width:100%px;
+    padding:20px;
+}
+/*yanse*/
+.yansepa{
+    text-align:center;
+    display:block;
+    height:50;
+}
+/*zhuce*/
+.zhucediva{
+    text-align:center;
+    font-size:100px;
+}
+/*gkb*/
+.gkbbody{
+    text-align:center;
+    font-size:50px;
+    background-color:#ABCDEF;
+}
