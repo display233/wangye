@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<title>印刷价计算</title>
+	<link rel="stylesheet" href="template">
+	<link rel="stylesheet" type="text/css" href="tongyong.css">
+</head>
+    <body class="ysjjsbody">
+        <input id="a" placeholder="实际打印面数"><br>
+        <input id="b" placeholder="每面实际字数"><br>
+        <input id="c" placeholder="开数"><br>
+        <input id="d" placeholder="每面单价"><br>
+        <button onclick="calc()">计算</button><br>
+        <p>温馨提示:<br>
+            1.输入数值并计算会自动替换下面的公式。<br>
+            2.请认真确认输入数值是否正确。<br>
+            3.单价栏请输入32开标准单价，下边会自动帮你计算实际单价。<br>
+            4.请输入正确开数。<br>
+            5.这个还没完全做完。
+        </p>
+        <p>公式:</p>
+        <p>
+            <span id="resultBa">每面实际字数</span>÷
+            <span id="resultCa">开数对应的每面容纳字数</span>=
+            <span id="resultDa">___</span>
+        </p>
+        <p>
+            <span id="resultAa">实际打印面数</span>×
+            <span id="resultDb">___</span>=
+            <span id="resultGa">计价总面数</span>(面)
+        </p>
+        <p>
+            <span id="resultGb">计价总面数</span>×
+            <span id="resultEa">单价</span>=
+            <span id="resultFa">总价</span>(元)
+        </p>
+        <p>合并公式:</p>
+        <p>
+            <span id="resultAb">实际打印面数</span>×(
+            <span id="resultBb">每面实际字数</span>÷
+            <span id="resultCb">开数对应的每面容纳字数</span>)×
+            <span id="resultEb">单价</span>=
+            <span id="resultFb">总价</span>(元)
+        </p>
+    </body>
+        <script>
+            function calc(){
+                let inputA = document.getElementById("a")
+                let inputB = document.getElementById("b")
+                let inputC = document.getElementById("c")
+                let inputD = document.getElementById("d")
+                let resultA = document.getElementById("resultA")
+                let resultB = document.getElementById("resultB")
+                let valA = parseInt(inputA.value)
+                let valB = parseInt(inputB.value)
+                let valC = parseInt(inputC.value)
+                let valD = parseInt(inputD.value)
+                let valE = 32/valC*750
+                let valF = 32/valC
+                resultAa.innerText = valA
+                resultAb.innerText = valA
+                resultBa.innerText = valB
+                resultBb.innerText = valB
+                resultCa.innerText = valE
+                resultCb.innerText = valE
+                resultDa.innerText = valB/valE
+                resultDb.innerText = valB/valE
+                resultEa.innerText = valD*valF
+                resultEb.innerText = valD*valF
+                resultFa.innerText = valA*valB/valE*valD*valF
+                resultFb.innerText = valA*valB/valE*valD*valF
+                resultGa.innerText = valA*valB/valE
+                resultGb.innerText = valA*valB/valE
+            }
+        </script>
+</html>
+<!--bgcolor-->
+<!--a = int(input("实际打印面数"))
+b = int(input("每面实际字数"))
+c = int(input("开数"))
+d = int(input("每面单价"))
+e = 32 / c * 750
+f = 32 / c
+g = a * b / e
+h = a * b / e * d * f
+print("计价面数:")
+print(g)
+print("总价:")
+print(h)-->
