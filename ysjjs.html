@@ -8,23 +8,22 @@
 	<script src="math.min.js"></script>
 </head>
     <body class="ysjjsbody">
-        <input id="sjm" placeholder="实际打印面数"><br>
-        <input id="sjz" placeholder="每面实际字数"><br>
-        <input id="ks" placeholder="开数"><br>
-        <input id="bzdj" placeholder="每面单价"><br>
+        <input id="sjm" maxlength="8" placeholder="实际打印面数"><br>
+        <input id="sjz" maxlength="8" placeholder="每面实际字数"><br>
+        <input id="ks" maxlength="8" placeholder="开数"><br>
+        <input id="bzdj" maxlength="8" placeholder="每面单价"><br>
         <button onclick="calc()">计算</button>
         <p class="ysjjsa">温馨提示:<br>
-            1.输入数值并计算会自动替换下面的公式。<br>
+            1.请输入正确开数。<br>
             2.请认真确认输入数值是否正确。<br>
-            3.单价栏请输入32开标准单价，下边会自动帮你计算实际单价。<br>
-            4.请输入正确开数。<br>
-            5.请注意辨认无意义算式并忽略它。<br>
+            3.请注意辨认无意义算式并忽略它。<br>
+            4.输入数值并计算会自动替换下面的公式。<br>
+            5.单价栏请输入32开标准单价，下边会自动帮你计算实际单价。<br>
             6.每面实际字数少于开数的每面容纳字数请直接输入开数的每面容纳字数。<br>
             7.可在下方换算开数对应的容纳字数，零星版面也可在下方换算对应的容纳字数。<br>
-            8.由于无法保留两位小数，如遇到三位及以上小数时请到<a href=#db>最下方</a>手动计算。(还没做)
         </p>
     <div class="ysjjsa">
-        <input id="srks" placeholder="输入开数">开数容纳字数换算:<span id="pthsa"></span>(字/p)<br>
+        <input id="srks" maxlength="8" placeholder="输入开数">开数容纳字数换算:<span id="pthsa"></span>(字/p)<br>
         <button onclick="kshs()">换算</button>零星版面字数换算:<span id="lxhsa"></span>(字/p)
     </div>
     <div class="ysjjsa">
@@ -76,24 +75,30 @@
                 let sjz = math.bignumber(valB)
                 let ks = math.bignumber(valC)
                 let bzdj = math.bignumber(valD)
-                let ksjg = math.chain(clA)
+                let ksjg = math.fix(
+                           math.chain(clA)
                           .divide(ks)
-                          .done()
-                let ksrn = math.chain(ksjg)
+                          .done(), 2)
+                let ksrn = math.fix(
+                           math.chain(ksjg)
                           .multiply(clB)
-                          .done()
-                let bl = math.chain(sjz)
+                          .done(), 2)
+                let bl = math.fix(
+                           math.chain(sjz)
                           .divide(ksrn)
-                          .done()
-                let sjdj = math.chain(bzdj)
+                          .done(), 2)
+                let sjdj = math.fix(
+                           math.chain(bzdj)
                           .multiply(ksjg)
-                          .done()
-                let jjm = math.chain(sjm)
+                          .done(), 2)
+                let jjm = math.fix(
+                           math.chain(sjm)
                           .multiply(bl)
-                          .done()
-                let zj = math.chain(jjm)
+                          .done(), 2)
+                let zj = math.fix(
+                           math.chain(jjm)
                           .multiply(sjdj)
-                          .done()
+                          .done(), 2)
                 sjma.innerText = sjm
                 sjmb.innerText = sjm
                 sjza.innerText = sjz
@@ -121,14 +126,16 @@
                 let hsb = math.bignumber(750)
                 let hsc = math.bignumber(16)
                 let hsd = math.bignumber(1600)
-                let pths = math.chain(hsa)
+                let pths = math.fix(
+                           math.chain(hsa)
                           .divide(srksc)
                           .multiply(hsb)
-                          .done()
-                let lxhs = math.chain(hsc)
+                          .done(), 2)
+                let lxhs = math.fix(
+                           math.chain(hsc)
                           .divide(srksc)
                           .multiply(hsd)
-                          .done()
+                          .done(), 2)
                 pthsa.innerText = pths
                 lxhsa.innerText = lxhs
             }
