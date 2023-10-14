@@ -4,16 +4,13 @@
 	<meta charset="utf-8">
 	<title>印刷价计算</title>
 	<link rel="stylesheet" href="template">
-	<link rel="stylesheet" type="text/css" href="tongyong.css">
+	<link rel="stylesheet" type="text/css" href="ysjjs.css">
 	<script src="math.min.js"></script>
 </head>
-    <body class="ysjjsbody">
-        <input id="sjm" maxlength="8" placeholder="实际打印面数"><br>
-        <input id="sjz" maxlength="8" placeholder="每面实际字数"><br>
-        <input id="ks" maxlength="8" placeholder="开数"><br>
-        <input id="bzdj" maxlength="8" placeholder="每面单价"><br>
-        <button onclick="calc()">计算</button>
-        <p class="ysjjsa">温馨提示:<br>
+    <body>
+    <div class="divbj">
+    <div class="divwxts">
+        <p>温馨提示:<br>
             1.请输入正确开数。<br>
             2.请认真确认输入数值是否正确。<br>
             3.请注意辨认无意义算式并忽略它。<br>
@@ -22,12 +19,32 @@
             6.每面实际字数少于开数的每面容纳字数请直接输入开数的每面容纳字数。<br>
             7.可在下方换算开数对应的容纳字数，零星版面也可在下方换算对应的容纳字数。<br>
         </p>
-    <div class="ysjjsa">
+    </div>
+    <div class="divjsjg">
+        <input id="sra" maxlength="10"></input>
+        <select id="sf">
+            <option>+</option>
+            <option>-</option>
+            <option>×</option>
+            <option>÷</option>
+        </select>
+        <input id="srb" maxlength="10"></input>
+        <button onclick="sdjs()">=</button>
+        <span id="xsjg"><span>
+    </div>
+    <div class="divhsjg">
         <input id="srks" maxlength="8" placeholder="输入开数"><button onclick="kshs()">换算</button><br>
         开数容纳字数换算:<span id="pthsa"></span>(字/p)<br>
         零星版面字数换算:<span id="lxhsa"></span>(字/p)
     </div>
-    <div class="ysjjsa">
+    <div>
+        <input id="sjm" maxlength="8" placeholder="实际打印面数"><br>
+        <input id="sjz" maxlength="8" placeholder="每面实际字数"><br>
+        <input id="ks" maxlength="8" placeholder="开数"><br>
+        <input id="bzdj" maxlength="8" placeholder="每面单价"><br>
+        <button onclick="calc()">计算</button>
+    </div>
+    <div class="divgs">
         <p>公式:</p>
         <p>
             <span id="sjza">每面实际字数</span>÷
@@ -59,17 +76,6 @@
             <span id="zjb">总价</span>(元)
         </p>
     </div>
-    <div class="ysjjsdbjs">
-        <input id="sra" maxlength="10"></input>
-        <select id="sf">
-            <option>+</option>
-            <option>-</option>
-            <option>×</option>
-            <option>÷</option>
-        </select>
-        <input id="srb" maxlength="10"></input>
-        <button onclick="sdjs()">=</button>
-        <span id="xsjg"><span>
     </div>
     </body>
         <script>
