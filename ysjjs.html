@@ -23,8 +23,9 @@
             7.可在下方换算开数对应的容纳字数，零星版面也可在下方换算对应的容纳字数。<br>
         </p>
     <div class="ysjjsa">
-        <input id="srks" maxlength="8" placeholder="输入开数">开数容纳字数换算:<span id="pthsa"></span>(字/p)<br>
-        <button onclick="kshs()">换算</button>零星版面字数换算:<span id="lxhsa"></span>(字/p)
+        <input id="srks" maxlength="8" placeholder="输入开数"><button onclick="kshs()">换算</button><br>
+        开数容纳字数换算:<span id="pthsa"></span>(字/p)<br>
+        零星版面字数换算:<span id="lxhsa"></span>(字/p)
     </div>
     <div class="ysjjsa">
         <p>公式:</p>
@@ -57,6 +58,18 @@
             <span id="ksjgb">开数的价格倍率</span>)=
             <span id="zjb">总价</span>(元)
         </p>
+    </div>
+    <div class="ysjjsdbjs">
+        <input id="sra" maxlength="10"></input>
+        <select id="sf">
+            <option>+</option>
+            <option>-</option>
+            <option>×</option>
+            <option>÷</option>
+        </select>
+        <input id="srb" maxlength="10"></input>
+        <button onclick="sdjs()">=</button>
+        <span id="xsjg"><span>
     </div>
     </body>
         <script>
@@ -138,6 +151,34 @@
                           .done(), 2)
                 pthsa.innerText = pths
                 lxhsa.innerText = lxhs
+            }
+            function sdjs(){
+                let hqa = document.getElementById("sra")
+                let hqb = document.getElementById("srb")
+                let sf = document.getElementById("sf")
+                let zhfdsa = parseFloat(hqa.value)
+                let zhfdsb = parseFloat(hqb.value)
+                let sra = math.bignumber(zhfdsa)
+                let srb = math.bignumber(zhfdsb)
+                let zdjs = 0
+                if(sf.value==="+"){
+                    zdjs = math.chain(sra)
+                          .add(srb)
+                          .done()
+                }else if(sf.value==="-"){
+                    zdjs = math.chain(sra)
+                          .subtract(srb)
+                          .done()
+                }else if(sf.value==="×"){
+                    zdjs = math.chain(sra)
+                          .multiply(srb)
+                          .done()
+                }else if(sf.value==="÷"){
+                    zdjs = math.chain(sra)
+                          .divide(srb)
+                          .done()
+                }
+                xsjg.innerText = zdjs
             }
         </script>
 </html>

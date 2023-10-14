@@ -1,32 +1,117 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>印刷价计算</title>
-	<link rel="stylesheet" href="template">
-	<link rel="stylesheet" type="text/css" href="试验用.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>计算器</title>
+  
+  <link rel="stylesheet" href="jsq.css">
+  <script src="math.min.js"></script>
 </head>
-    <body>
-  <audio oncanplay="play()" preload="auto" controls id="456" src="Go Again.mp3" onpause="hhh()"></audio><br>
-  <input type="button" value="33" onclick="hhh()">
-  <select id="bflb" onchange="hhh()">
-     <option>+</option>
-     <option>-</option>
-     <option>×</option>
-     <option>÷</option>
-  </select>
+
+<body>
+   <div class="divbj">
+      <form>
+         <div class="divyy">
+            <audio apreload autoplay id="yp" src="Go Again.mp3" onpause="ztpd()"></audio>
+            <select id="bflb" onchange="qhyy()">
+               <option>播放列表</option>
+               <option>Go Again</option>
+               <option>Keep You Mine</option>
+               <option>Circles</option>
+            </select>
+         </div>
+      </form>
+   </div>
+   <div class="divbj">
+      <div class="divpp">
+         <input type="button" value="开始播放" onclick="ksbf()" id="ksbf">
+      </div>
+   </div>
+   <div class="diva">
+      <div class="divb">
+         <form>
+            <div class="divc">
+               <input type="button" name="divc">
+            </div>
+            <div>
+               <input type="button" value="AC" onclick="divc.value =''">
+               <input type="button" value="DE" onclick="divc.value = divc.value.slice(0,-1)">
+               <input type="button" value="." onclick="divc.value +='.'">
+               <input type="button" value="/" onclick="divc.value +='/'">
+            </div>
+            <div>
+               <input type="button" value="7" onclick="divc.value +='7'">
+               <input type="button" value="8" onclick="divc.value +='8'">
+               <input type="button" value="9" onclick="divc.value +='9'">
+               <input type="button" value="*" onclick="divc.value +='*'">
+            </div>
+            <div>
+               <input type="button" value="4" onclick="divc.value +='4'">
+               <input type="button" value="5" onclick="divc.value +='5'">
+               <input type="button" value="6" onclick="divc.value +='6'">
+               <input type="button" value="-" onclick="divc.value +='-'">
+            </div>
+            <div>
+               <input type="button" value="1" onclick="divc.value +='1'">
+               <input type="button" value="2" onclick="divc.value +='2'">
+               <input type="button" value="3" onclick="divc.value +='3'">
+               <input type="button" value="+" onclick="divc.value +='+'">
+            </div>
+            <div>
+               <input type="button" value="00" onclick="divc.value +='00'">
+               <input type="button" value="0" onclick="divc.value +='0'">
+               <input type="button" value="=" class="ysj" onclick="divc.value = math.evaluate(divc.value)">
+            </div>
+         </form>
+      </div>
+   </div>
 </body>
-</html>
 <script>
-function hhh(){
-   let y = document.getElementById("456")
-   let x = document.getElementById("456").src
-   let n = document.getElementById("456").ended
+   let yp = document.getElementById("yp")
+   let bfwb = document.getElementById("yp").ended
    let bflb = document.getElementById("bflb")
-   if (x == "Go Again.mp3"){
-      y.src = "Circles.mp3"
-   }else{
-      y.src = "Go Again.mp3"
+function ztpd(){
+   if (bflb.value == "播放列表") {
+      yp.src = "Keep You Mine.mp3"
+      bflb.value = "Keep You Mine"
+   } else if (bflb.value == "Go Again"){
+      yp.src = "Keep You Mine.mp3"
+      bflb.value = "Keep You Mine"
+   }else if(bflb.value == "Keep You Mine"){
+      yp.src = "Circles.mp3"
+      bflb.value = "Circles"
+   }else if(bflb.value == "Circles"){
+      yp.src = "Go Again.mp3"
+      bflb.value = "Go Again"
    }
+   yp.play()
+}
+function qhyy(){
+   if (bflb.value == "播放列表"){
+      yp.src = "Go Again.mp3"
+      bflb.value = "Go Again"
+   }else if (bflb.value == "Go Again"){
+      yp.src = "Go Again.mp3"
+   }else if(bflb.value == "Keep You Mine"){
+      yp.src = "Keep You Mine.mp3"
+   }else if(bflb.value == "Circles"){
+      yp.src = "Circles.mp3"
+   }
+   yp.play()
+}
+function ksbf(){
+   let ksbf = document.getElementById("ksbf")
+   if (bflb.value == "播放列表") {
+      yp.src = "Keep You Mine.mp3"
+      bflb.value = "Keep You Mine"
+   }
+   yp.play()
+   ksbf.value = ""
+   ksbf.style.width="0"
+   ksbf.style.height="0"
 }
 </script>
+</html>
