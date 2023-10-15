@@ -15,7 +15,7 @@
    <div class="divbj">
       <form>
          <div class="divyy">
-            <audio apreload autoplay id="yp" src="Go Again.mp3" onpause="ztpd()"></audio>
+            <audio apreload autoplay id="yp" src="http://music.163.com/song/media/outer/url?id=1952112969.mp3" onpause="ztpd()"></audio>
             <select id="bflb" onchange="qhyy()">
                <option>播放列表</option>
                <option>Go Again</option>
@@ -75,37 +75,37 @@
    let bflb = document.getElementById("bflb")
 function ztpd(){
    if (bflb.value == "播放列表") {
-      yp.src = "Keep You Mine.mp3"
+      yp.src = "http://music.163.com/song/media/outer/url?id=1381706037.mp3"
       bflb.value = "Keep You Mine"
    } else if (bflb.value == "Go Again"){
-      yp.src = "Keep You Mine.mp3"
+      yp.src = "http://music.163.com/song/media/outer/url?id=1381706037.mp3"
       bflb.value = "Keep You Mine"
    }else if(bflb.value == "Keep You Mine"){
-      yp.src = "Circles.mp3"
+      yp.src = "http://music.163.com/song/media/outer/url?id=1447773945.mp3"
       bflb.value = "Circles"
    }else if(bflb.value == "Circles"){
-      yp.src = "Go Again.mp3"
+      yp.src = "http://music.163.com/song/media/outer/url?id=1952112969.mp3"
       bflb.value = "Go Again"
    }
    yp.play()
 }
 function qhyy(){
    if (bflb.value == "播放列表"){
-      yp.src = "Go Again.mp3"
+      yp.src = "http://music.163.com/song/media/outer/url?id=1952112969.mp3"
       bflb.value = "Go Again"
    }else if (bflb.value == "Go Again"){
-      yp.src = "Go Again.mp3"
+      yp.src = "http://music.163.com/song/media/outer/url?id=1952112969.mp3"
    }else if(bflb.value == "Keep You Mine"){
-      yp.src = "Keep You Mine.mp3"
+      yp.src = "http://music.163.com/song/media/outer/url?id=1381706037.mp3"
    }else if(bflb.value == "Circles"){
-      yp.src = "Circles.mp3"
+      yp.src = "http://music.163.com/song/media/outer/url?id=1447773945.mp3"
    }
    yp.play()
 }
 function ksbf(){
    let ksbf = document.getElementById("ksbf")
    if (bflb.value == "播放列表") {
-      yp.src = "Keep You Mine.mp3"
+      yp.src = "http://music.163.com/song/media/outer/url?id=1381706037.mp3"
       bflb.value = "Keep You Mine"
    }
    yp.play()
