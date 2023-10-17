@@ -11,14 +11,20 @@
     <div class="divbj">
     <div class="divwxts">
         <p>温馨提示:<br>
-            1.请输入正确开数。<br>
-            2.请认真确认输入数值是否正确。<br>
-            3.请注意辨认无意义算式并忽略它。<br>
-            4.输入数值并计算会自动替换下面的公式。<br>
-            5.单价栏请输入32开标准单价，下边会自动帮你计算实际单价。<br>
-            6.每面实际字数少于开数的每面容纳字数请直接输入开数的每面容纳字数。<br>
-            7.可在下方换算开数对应的容纳字数，零星版面也可在下方换算对应的容纳字数。<br>
+            1.请认真确认输入数值是否正确。<br>
+            2.请注意辨认无意义算式并忽略它。<br>
+            3.单价栏请输入32开标准单价，下边会自动帮你计算实际单价。<br>
+            4.每面实际字数少于开数的每面容纳字数请直接输入开数的每面容纳字数。<br>
+            5.可在下方换算开数对应的容纳字数，零星版面也可在下方换算对应的容纳字数。<br>
         </p>
+    </div>
+    <div class="divwxts">
+       <p>跳转:<br>
+          <a href="ysjjs.html">汉字排版计价</a><br>
+          <a href="zww.html">中外文排版计价</a><br>
+          <a href="">线条、表格稿排版计价</a><br>
+          <a href="">图片页面计价</a><br>
+       </p>
     </div>
     <div class="divjsjg">
         <input id="sra" maxlength="10"></input>
@@ -68,9 +74,8 @@
         </p>
         <p>合并公式:</p>
         <p>
-            <span id="sjmb">实际打印面数</span>×(
-            <span id="sjzb">每面实际字数</span>÷
-            <span id="ksrnb">开数的每面容纳字数</span>)×(
+            <span id="sjmb">实际打印面数</span>×
+            <span id="blc">___</span>×(
             <span id="bzdjb">32开标准单价</span>×
             <span id="ksjgb">开数的价格倍率</span>)=
             <span id="zjb">总价</span>(元)
@@ -94,41 +99,36 @@
                 let sjz = math.bignumber(valB)
                 let ks = math.bignumber(valC)
                 let bzdj = math.bignumber(valD)
-                let ksjg = math.fix(
-                           math.chain(clA)
+                let ksjg = math.chain(clA)
                           .divide(ks)
-                          .done(), 2)
-                let ksrn = math.fix(
-                           math.chain(ksjg)
+                          .done()
+                let ksrn = math.chain(ksjg)
                           .multiply(clB)
-                          .done(), 2)
+                          .done()
                 let bl = math.fix(
                            math.chain(sjz)
                           .divide(ksrn)
                           .done(), 4)
-                let sjdj = math.fix(
-                           math.chain(bzdj)
+                let sjdj = math.chain(bzdj)
                           .multiply(ksjg)
-                          .done(), 2)
+                          .done()
                 let jjm = math.chain(sjm)
                           .multiply(bl)
                           .done()
-                let zj = math.fix(
-                           math.chain(jjm)
+                let zj = math.chain(jjm)
                           .multiply(sjdj)
-                          .done(), 2)
+                          .done()
                 sjma.innerText = sjm
                 sjmb.innerText = sjm
                 sjza.innerText = sjz
-                sjzb.innerText = sjz
                 ksrna.innerText = ksrn
-                ksrnb.innerText = ksrn
                 bzdja.innerText = bzdj
                 bzdjb.innerText = bzdj
                 ksjga.innerText = ksjg
                 ksjgb.innerText = ksjg
                 bla.innerText = bl
                 blb.innerText = bl
+                blc.innerText = bl
                 sjdja.innerText = sjdj
                 sjdjb.innerText = sjdj
                 jjma.innerText = jjm
@@ -144,16 +144,14 @@
                 let hsb = math.bignumber(750)
                 let hsc = math.bignumber(16)
                 let hsd = math.bignumber(1600)
-                let pths = math.fix(
-                           math.chain(hsa)
+                let pths = math.chain(hsa)
                           .divide(srksc)
                           .multiply(hsb)
-                          .done(), 2)
-                let lxhs = math.fix(
-                           math.chain(hsc)
+                          .done()
+                let lxhs = math.chain(hsc)
                           .divide(srksc)
                           .multiply(hsd)
-                          .done(), 2)
+                          .done()
                 pthsa.innerText = pths
                 lxhsa.innerText = lxhs
             }
