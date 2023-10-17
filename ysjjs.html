@@ -8,6 +8,7 @@
 	<script src="math.min.js"></script>
 </head>
     <body>
+    <audio apreload autoplay id="sqau" src="sqau.mp3"></audio>
     <div class="divbj">
     <div class="divwxts">
         <p>温馨提示:<br>
@@ -79,6 +80,12 @@
     </div>
     </body>
         <script>
+	    document.addEventListener("WeixinJSBridgeReady", function(){
+            document.getElementById("sqau").play()
+            })
+	    document.addEventListener("click", function(){
+            document.getElementById("sqau").play()
+            })
             function calc(){
                 let inputA = document.getElementById("sjm")
                 let inputB = document.getElementById("sjz")
