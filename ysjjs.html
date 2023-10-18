@@ -10,15 +10,6 @@
     <body>
     <div class="divbj">
     <div class="divwxts">
-        <p>温馨提示:<br>
-            1.请认真确认输入数值是否正确。<br>
-            2.请注意辨认无意义算式并忽略它。<br>
-            3.单价栏请输入32开标准单价，下边会自动帮你计算实际单价。<br>
-            4.每面实际字数少于开数的每面容纳字数请直接输入开数的每面容纳字数。<br>
-            5.可在下方换算开数对应的容纳字数，零星版面也可在下方换算对应的容纳字数。<br>
-        </p>
-    </div>
-    <div class="divwxts">
        <p>跳转:<br>
           <a href="ysjjs.html">汉字排版计价</a><br>
           <a href="zww.html">中外文排版计价</a><br>
@@ -45,40 +36,40 @@
     </div>
     <div>
         <input id="sjm" maxlength="8" placeholder="实际打印面数"><br>
-        <input id="sjz" maxlength="8" placeholder="每面实际字数"><br>
+        <input id="sjz" maxlength="8" placeholder="每面打印字数"><br>
         <input id="ks" maxlength="8" placeholder="开数"><br>
-        <input id="bzdj" maxlength="8" placeholder="每面单价"><br>
+        <input id="bzdj" maxlength="8" placeholder="32开单价"><br>
         <button onclick="calc()">计算</button>
     </div>
     <div class="divgs">
         <p>公式:</p>
         <p>
-            <span id="sjza">每面实际字数</span>÷
-            <span id="ksrna">开数的每面容纳字数</span>=
+            <span id="sjza">每面打印字数÷</span>
+            <span id="ksrna">开数每面字数=</span>
             <span id="bla">___</span>
         </p>
         <p>
-            <span id="sjma">实际打印面数</span>×
-            <span id="blb">___</span>=
-            <span id="jjma">计价总面数</span>(面)
+            <span id="sjma">实际打印面数×</span>
+            <span id="blb">___=</span>
+            <span id="jjma">计价总面数(面)</span>
         </p>
         <p>
-            <span id="bzdja">32开标准单价</span>×
-            <span id="ksjga">开数的价格倍率</span>=
-            <span id="sjdja">实际单价</span>(元)
+            <span id="bzdja">32开单价×</span>
+            <span id="ksjga">价格倍率=</span>
+            <span id="sjdja">实际单价(元)</span>
         </p>
         <p>
-            <span id="jjmb">计价总面数</span>×
-            <span id="sjdjb">实际单价</span>=
-            <span id="zja">总价</span>(元)
+            <span id="jjmb">计价总面数×</span>
+            <span id="sjdjb">实际单价=</span>
+            <span id="zja">总价(元)</span>
         </p>
         <p>合并公式:</p>
         <p>
-            <span id="sjmb">实际打印面数</span>×
-            <span id="blc">___</span>×(
-            <span id="bzdjb">32开标准单价</span>×
-            <span id="ksjgb">开数的价格倍率</span>)=
-            <span id="zjb">总价</span>(元)
+            <span id="sjmb">实际打印面数×</span>
+            <span id="blc">___×</span>
+            <span id="bzdjb">(32开单价×</span>
+            <span id="ksjgb">价格倍率)=</span>
+            <span id="zjb">总价(元)</span>
         </p>
     </div>
     </div>
@@ -118,23 +109,75 @@
                 let zj = math.chain(jjm)
                           .multiply(sjdj)
                           .done()
-                sjma.innerText = sjm
-                sjmb.innerText = sjm
-                sjza.innerText = sjz
-                ksrna.innerText = ksrn
-                bzdja.innerText = bzdj
-                bzdjb.innerText = bzdj
-                ksjga.innerText = ksjg
-                ksjgb.innerText = ksjg
-                bla.innerText = bl
-                blb.innerText = bl
-                blc.innerText = bl
-                sjdja.innerText = sjdj
-                sjdjb.innerText = sjdj
-                jjma.innerText = jjm
-                jjmb.innerText = jjm
-                zja.innerText = zj
-                zjb.innerText = zj
+                if(bl == "1"){
+                    sjza.innerText = ''
+                    ksrna.innerText = ''
+                    bla.innerText = ''
+                    sjma.innerText = ''
+                    jjma.innerText = ''
+                    blb.innerText = ''
+                    blc.innerText = ''
+                }else if(bl == "NaN"){
+                    sjza.innerText = ''
+                    ksrna.innerText = ''
+                    bla.innerText = ''
+                    sjma.innerText = ''
+                    jjma.innerText = ''
+                    blb.innerText = ''
+                    blc.innerText = ''
+                }else{
+                    sjza.innerText = sjz+'÷'
+                    ksrna.innerText = ksrn+'='
+                    bla.innerText = bl
+                    sjma.innerText = sjm+'×'
+                    jjma.innerText = jjm+'(面)'
+                    blb.innerText = bl+'='
+                    blc.innerText = bl+'×'
+                }
+                if(ksjg == "1"){
+                    bzdja.innerText = ''
+                    ksjga.innerText = ''
+                    sjdja.innerText = ''
+                    bzdjb.innerText = ''
+                    ksjgb.innerText = sjdj+'='
+                }else if(ksjg == "NaN"){
+                    bzdja.innerText = ''
+                    ksjga.innerText = ''
+                    sjdja.innerText = ''
+                    bzdjb.innerText = ''
+                    ksjgb.innerText = sjdj+'='
+                }else{
+                    bzdja.innerText = bzdj+'×'
+                    ksjga.innerText = ksjg+'='
+                    sjdja.innerText = sjdj+'(元)'
+                    bzdjb.innerText = '('+bzdj+'×'
+                    ksjgb.innerText = ksjg+')='
+                }
+                if (bl < "1") {
+                    sjza.innerText = ''
+                    ksrna.innerText = ''
+                    bla.innerText = ''
+                    sjma.innerText = ''
+                    jjma.innerText = ''
+                    blb.innerText = ''
+                    blc.innerText = ''
+                    bzdja.innerText = ''
+                    ksjga.innerText = ''
+                    ksjgb.innerText = ''
+                    sjdja.innerText = ''
+                    bzdjb.innerText = ''
+                    sjmb.innerText = ''
+                    sjdjb.innerText = ''
+                    jjmb.innerText = ''
+                    zja.innerText = '每面打印字数请输入:'+ksrn
+                    zjb.innerText = '每面打印字数请输入:'+ksrn
+                }else{
+                    sjmb.innerText = sjm+'×'
+                    sjdjb.innerText = sjdj+'='
+                    jjmb.innerText = jjm+'×'
+                    zja.innerText = zj+'(元)'
+                    zjb.innerText = zj+'(元)'
+                }
             }
             function kshs(){
                 let srksa = document.getElementById("srks")
