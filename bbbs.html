@@ -24,9 +24,10 @@
                 <button class="bflbaj" onclick="cc()"></button>
             </label>
             <div class="gqxz">
-                <p onclick="qh()">9999</p>
-                <p>9999</p>
-                <p>9999</p>
+                <p onclick="scs()">上厕所</p>
+                <p onclick="syz()">数鸭子</p>
+                <p onclick="ddd()">叮叮当</p>
+                <p onclick="xlh()">小螺号</p>
             </div>
         </div>
     </div>
@@ -50,10 +51,25 @@
             document.getElementById("bflb").checked = false
         }
     }
-    function qh(){
+    function scs() {
+        document.getElementById("bflb").checked = false
+        let yp = document.getElementById("yp")
+        yp.src = "http://music.163.com/song/media/outer/url?id=566442223.mp3"
+    }
+    function syz(){
         document.getElementById("bflb").checked = false
         let yp = document.getElementById("yp")
         yp.src="http://music.163.com/song/media/outer/url?id=566442172.mp3"
+    }
+    function ddd() {
+        document.getElementById("bflb").checked = false
+        let yp = document.getElementById("yp")
+        yp.src = "http://music.163.com/song/media/outer/url?id=566442178.mp3"
+    }
+    function xlh() {
+        document.getElementById("bflb").checked = false
+        let yp = document.getElementById("yp")
+        yp.src = "http://music.163.com/song/media/outer/url?id=566436180.mp3"
     }
 </script>
 </html>

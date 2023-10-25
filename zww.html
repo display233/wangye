@@ -5,30 +5,11 @@
 	<title>印刷价计算</title>
 	<link rel="stylesheet" href="template">
 	<link rel="stylesheet" type="text/css" href="ysjjs.css">
+	<link rel="stylesheet" href="ljct.css">
 	<script src="math.min.js"></script>
 </head>
     <body>
     <div class="divbj">
-    <div class="divwxts">
-       <p>跳转:<br>
-          <a href="ysjjs.html">汉字排版计价</a><br>
-          <a href="zww.html">中外文排版计价</a><br>
-          线条、表格稿排版计价<br>
-          图片页面计价<br>
-       </p>
-    </div>
-    <div class="divjsjg">
-        <input id="sra" maxlength="10"></input>
-        <select id="sf">
-            <option>+</option>
-            <option>-</option>
-            <option>×</option>
-            <option>÷</option>
-        </select>
-        <input id="srb" maxlength="10"></input>
-        <button onclick="sdjs()">=</button>
-        <span id="xsjg"><span>
-    </div>
     <div class="inputbotton">
         <input type="button" value="黑体字" id="htza"><button onclick="htza.value='黑体字:是'">是</button><button onclick="htza.value='黑体字:否'">否</button><br>
         <input type="button" value="国际音标" id="gjyb"><button onclick="gjyb.value='国际音标:是'">是</button><button onclick="gjyb.value='国际音标:否'">否</button><br>
@@ -64,6 +45,54 @@
             <span id="jgbla"></span>=
             <span id="zja">总价</span>(元)
         </p>
+    </div>
+    <div class="divjsjg">
+        <input id="sra" maxlength="10"></input>
+        <select id="sf">
+            <option>+</option>
+            <option>-</option>
+            <option>×</option>
+            <option>÷</option>
+        </select>
+        <input id="srb" maxlength="10"></input>
+        <button onclick="sdjs()">=</button>
+        <span id="xsjg"><span>
+    </div>
+    <div class="xsyc">
+        <input type="checkbox" id="zyjt">
+        <label for="zyjt">
+            <span class="zyjt"></span>
+        </label>
+        <div class="wai">
+            <div class="bt">
+                <h1>链接跳转</h1>
+            </div>
+    
+            <div class="nei">
+                <input type="checkbox" id="wzpbjj">
+                <label for="wzpbjj">
+                    <span>文字排版计价</span>
+                    <span class="wzpbjj"></span>
+                </label>
+                <div class="ljtz">
+                    <span><a href="ysjjs.html">纯中文</a></span>
+                    <span><a href="zww.html">中外文</a></span>
+                </div>
+            </div>
+    
+            <div class="nei">
+                <input type="checkbox" id="wzpbjj1">
+                <label for="wzpbjj1">
+                    <span>特殊排版计价</span>
+                    <span class="wzpbjj"></span>
+                </label>
+                <div class="ljtz">
+                    <span><a href="#">表格</a></span>
+                    <span><a href="#">图片</a></span>
+                </div>
+            </div>
+    
+        </div>
     </div>
     </div>
     </body>

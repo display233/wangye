@@ -1,0 +1,15 @@
+.indexbody{
+    text-align:center;
+}
+.indexdiva{
+    background-color:#ABCDEF;
+    font-size:50px;
+    width:100%px;
+    border:dotted;
+}
+.indexdivb{
+    background-color:#f1f1f1;
+    font-size:12px;
+    width:100%px;
+    padding:20px;
+}
