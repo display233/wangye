@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="bbbs.css">
+</head>
+
+<body>
+    <audio id="yp" src="http://music.163.com/song/media/outer/url?id=566442223.mp3"></audio>
+    <span style="display: none" id="ypss"></span>
+    <div class="zwai">
+        <input type="checkbox" id="bfzt">
+        <label for="bfzt">
+            <button class="bfztaj" onclick="bb()"></button>
+        </label>
+        <img id="tp" class="tp" src="https://i.postimg.cc/wv458SpQ/image.webp" alt="">
+        <div class="nei">
+            <input type="checkbox" id="bflb">
+            <label for="bflb">
+                <span class="qx"></span>
+                <button class="bflbaj" onclick="cc()"></button>
+            </label>
+            <div class="gqxz">
+                <p onclick="qh()">9999</p>
+                <p>9999</p>
+                <p>9999</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function bb(){
+        let a = document.getElementById("bfzt").checked
+        if (a == false) {
+            document.getElementById("bfzt").checked = true
+            document.getElementById("yp").play()
+        }else{
+            document.getElementById("bfzt").checked = false
+            document.getElementById("yp").pause()
+        }
+    }
+    function cc() {
+        let b = document.getElementById("bflb").checked
+        if (b == false) {
+            document.getElementById("bflb").checked = true
+        } else {
+            document.getElementById("bflb").checked = false
+        }
+    }
+    function qh(){
+        document.getElementById("bflb").checked = false
+        let yp = document.getElementById("yp")
+        yp.src="http://music.163.com/song/media/outer/url?id=566442172.mp3"
+    }
+</script>
+</html>
