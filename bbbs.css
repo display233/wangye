@@ -1,93 +1,111 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-.zwai{
-    height: 100vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-.zwai input[type='checkbox']{
+
+.beijing input[type='checkbox'],
+.beijing input[type='radio'] {
     display: none;
 }
-.tp{
-    position: absolute;
-    top: 20%;
+
+.beijing {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.tupianqukuai {
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tupian {
     min-block-size: 80vw;
     border-radius: 50%;
-    animation: aaa 0s;
+    animation: tupianxuanzhuan 0s;
     /*animation-duration: 30s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;*/
 }
-.bfztaj{
+
+.bofangzantingtubiao {
     position: absolute;
-    top: 70%;
-    left: 20%;
+    top: 70vh;
+    left: 20vw;
     width: 20vw;
     height: 20vw;
+    border-radius: 50%;
     background-image: url(https://i.postimg.cc/436dBKvV/image.png);
     background-size: 20vw;
-    background-repeat: no-repeat;
-    border: none;
-    background-color: unset;
 }
-.bflbaj {
+
+.bofangliebiaotubiao {
     position: absolute;
-    top: 70%;
-    right: 20%;
+    top: 70vh;
+    right: 20vw;
     width: 20vw;
     height: 20vw;
     background-image: url(https://i.postimg.cc/kM1Hhqyp/image.png);
     background-size: 20vw;
-    background-repeat: no-repeat;
-    border: none;
-    background-color: unset;
 }
-.gqxz {
+
+.bofangliebiao {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 0;
+    width: 100vw;
     height: 0;
     background-color: #FFFFFF;
-    text-indent: 20px;
-    line-height: 60px;
-    font-size: 30px;
-    transition: 0.2s;
+    text-indent: 5vw;
+    line-height: 1.5em;
+    font-size: 5vh;
+    transition: 0.5s;
     overflow: hidden;
-}
-.gqxz p{
+    overflow-y: scroll;
     color: #8289DF;
+    z-index: 999;
 }
-.qx{
+
+.bofangliebiaoyinying {
     position: absolute;
     top: 0;
     left: 0;
-    width: 0;
+    width: 100vw;
     height: 0;
     background-color: #000;
-    opacity: 0.5;
-    transition: 0.01s;
+    transition: opacity 0.5s;
+    opacity: 0;
     overflow: hidden;
+    z-index: 998;
 }
-@keyframes aaa {
+
+@keyframes tupianxuanzhuan {
     100% {
         transform: rotate(360deg);
     }
 }
-.zwai input#bfzt:checked~.tp{
-    animation: aaa 30s infinite linear;
+
+input#bofangzantinganjian:checked~.tupianqukuai .tupian {
+    animation: tupianxuanzhuan 30s infinite linear;
 }
-.zwai input#bfzt:checked+label button{
+
+input#bofangzantinganjian:checked+label span {
     background-image: url(https://i.postimg.cc/YCgy9gB5/image.png)
 }
-.nei input#bflb:checked~.gqxz{
-    width: 100vw;
+
+input#bofangliebiaoanjian:checked~.bofangliebiao {
     height: 70vh;
 }
-.nei input#bflb:checked+label span{
-    width: 100vw;
-    height: 30vh; 
+
+input#bofangliebiaoanjian:checked+label span.bofangliebiaoyinying {
+    height: 100vh;
+    opacity: 0.6;
+}
+
+.bofangliebiao input[type='radio']:checked+label {
+    margin-left: 5vw;
+    color: #B4B683;
 }

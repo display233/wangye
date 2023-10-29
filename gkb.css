@@ -1,5 +1,23 @@
-.gkbbody{
-    text-align:center;
-    font-size:50px;
-    background-color:#ABCDEF;
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #555;
+    color: #fff;
+}
+.biaoge{
+    text-align: center;
+    width: 100vw;
+    height: 50vw;
+}
+@media (min-width:600px) {
+    .biaoge{
+        height: 100vh;
+    }
 }

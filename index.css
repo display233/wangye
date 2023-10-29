@@ -1,15 +1,189 @@
-.indexbody{
-    text-align:center;
+* {
+    padding: 0;
+    margin: 0;
 }
-.indexdiva{
-    background-color:#ABCDEF;
-    font-size:50px;
-    width:100%px;
-    border:dotted;
+
+a:link {
+    text-decoration: none;
+    color: #87E2FF;
 }
-.indexdivb{
-    background-color:#f1f1f1;
-    font-size:12px;
-    width:100%px;
-    padding:20px;
+
+a:visited {
+    text-decoration: none;
+    color: #5C8AFF;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.dingbulan {
+    width: 100vw;
+    height: 50px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #000;
+    position: absolute;
+}
+
+.dingbulan input[type='checkbox'] {
+    display: none;
+}
+
+.liebiaotubiao {
+    position: absolute;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background-image: url(https://i.postimg.cc/WbdHBCWb/image.png);
+    background-size: 50px;
+    background-repeat: no-repeat;
+}
+
+.liebiao {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    background-color: #fff;
+    transition: 0.3s;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.liebiaobiaoti {
+    height: 50px;
+    background-color: #9FA3B3;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.liebiaoyinying {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    background-color: #000;
+    transition: opacity 0.5s;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.liebiaocaidan>label {
+    position: relative;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    font-size: 30px;
+}
+
+.xialajianto {
+    position: absolute;
+    top: 8px;
+    right: 30px;
+    font-size: 24px;
+    color: #87E2FF;
+    transition: 0.3s
+}
+
+.caidanneirong {
+    position: relative;
+    left: 40px;
+    height: 0;
+    overflow: hidden;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.dibulan {
+    width: 100vw;
+    height: 50px;
+    float: left;
+    box-shadow: 0px 0px 5px #000;
+    color: #555;
+    text-align: center;
+    background-color: #fff;
+}
+
+.neirong {
+    width: 100vw;
+    height: calc(100vh - 50px);
+    background-color: #B0F7FF;
+    position: absolute;
+    top: 50px;
+    z-index: -1;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.neirong .hengxiangtupian {
+    width: calc(100vw - 10px);
+    float: left;
+    margin: 5px;
+    margin-bottom: 0;
+}
+
+.neirong .hengxiangtupian img {
+    border-radius: 10px;
+    width: calc(100vw - 10px);
+    height: auto;
+}
+
+.neirong .chuizhitupiana {
+    width: calc(50vw - 7.5px);
+    float: left;
+    margin: 5px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.neirong .chuizhitupianb {
+    width: calc(50vw - 7.5px);
+    float: left;
+    margin-right: 5px;
+}
+
+.neirong .chuizhitupiana img,
+.neirong .chuizhitupianb img {
+    border-radius: 10px;
+    width: calc(50vw - 7.5px);
+    height: auto;
+}
+
+input#liebiaoanjian:checked~.liebiao {
+    width: 70vw;
+}
+
+input#liebiaoanjian:checked+label span {
+    width: 100vw;
+    opacity: 0.5;
+    height: 100vh;
+}
+
+input#benzhanwangye:checked~.caidanneirong {
+    height: calc(4 * 30px);
+}
+
+input#benzhanwangye:checked+label .xialajianto {
+    transform: rotate(180deg);
+    top: 13px;
+    color: #5C8AFF;
+}
+
+input#qitawangye:checked~.caidanneirong {
+    height: calc(1 * 30px);
+}
+
+input#qitawangye:checked+label .xialajianto {
+    transform: rotate(180deg);
+    top: 13px;
+    color: #5C8AFF;
 }
