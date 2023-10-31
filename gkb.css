@@ -16,7 +16,7 @@ body{
     width: 100vw;
     height: 50vw;
 }
-@media (min-width:600px) {
+@media (min-width:1500px) {
     .biaoge{
         height: 100vh;
     }
