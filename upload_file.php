@@ -33,7 +33,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
 		else
 		{
 			// 如果 upload 目录不存在该文件则将文件上传到 upload 目录下
-			move_file($_FILES["file"]["tmp_name"], "/" . $_FILES["file"]["name"]);
+			move_upload_file($_FILES["file"]["tmp_name"], "/" . $_FILES["file"]["name"]);
 			echo "文件存储在: " . "/" . $_FILES["file"]["name"];
 		}
 	}
