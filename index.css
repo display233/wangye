@@ -1,3 +1,15 @@
+:root {
+    --bg: #fff;
+    --bg2: #9FA3B3;
+    --bg3: #B0F7FF;
+    --input_bg: #555;
+    --input_bg2: #333;
+    --input_color: #fff;
+    --input_color2: #C6C6C6;
+    --input_color3: #282828;
+    --color: #000;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -21,50 +33,122 @@ a:active {
     text-decoration: none;
 }
 
-.dingbulan {
+.divA {
     width: 100vw;
     height: 50px;
-    background-color: #fff;
+    background-color: var(--bg);
+    color: var(--color);
+    transition: 0.3s;
     box-shadow: 0px 0px 5px #000;
     position: absolute;
 }
 
-.dingbulan input[type='checkbox'] {
+.divA input[type='checkbox'][id] {
     display: none;
 }
 
-.liebiaotubiao {
+.divA_inputA_divA {
     position: absolute;
     left: 10px;
-    width: 50px;
-    height: 50px;
-    background-image: url(https://i.postimg.cc/WbdHBCWb/image.png);
-    background-size: 50px;
-    background-repeat: no-repeat;
+    top: 21px;
+    width: 45px;
+    height: 8px;
+    border-radius: 10px;
+    background: var(--input_bg2);
 }
 
-.liebiao {
+.divA_inputA_divA:before{
+    content: '';
+    position: absolute;
+    top: -12px;
+    width: 45px;
+    height: 8px;
+    border-radius: 10px;
+    background: var(--input_bg2);
+}
+
+.divA_inputA_divA:after{
+    content: '';
+    position: absolute;
+    top: 12px;
+    width: 45px;
+    height: 8px;
+    border-radius: 10px;
+    background: var(--input_bg2);
+}
+
+.divA_inputB {
+    width: 80px;
+    height: 40px;
+    -webkit-appearance: none;
+    background-color: var(--input_bg);
+    border-radius: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.divA_inputB:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 36px;
+    width: 36px;
+    background-color: var(--input_color);
+    border-radius: 50%;
+    transition: left 0.3s ease-in-out;
+}
+
+.divA_inputB:after {
+    content: "OFF";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(100% - 38px);
+    font-size: 18px;
+    color: var(--input_color);
+}
+
+.divA_inputB:checked:before {
+    left: calc(100% - 36px);
+}
+
+.divA_inputB:checked:after {
+    content: "ON";
+    left: 7px;
+}
+
+.divA_inputB_span{
+    position: absolute;
+    top: 5px;
+    right: 95px;
+    font-size: 25px;
+}
+
+.divA_divA {
     position: absolute;
     top: 0;
     left: 0;
     width: 0;
     height: 100vh;
-    background-color: #fff;
-    transition: 0.3s;
+    background-color: var(--bg);
+    transition: width 0.3s;
     overflow: hidden;
     overflow-y: scroll;
 }
 
-.liebiaobiaoti {
+.divA_divA_divA {
     height: 50px;
-    background-color: #9FA3B3;
+    background-color: var(--bg2);
     font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.liebiaoyinying {
+.divA_inputA_spanA {
     position: absolute;
     top: 0;
     left: 0;
@@ -76,7 +160,7 @@ a:active {
     overflow: hidden;
 }
 
-.liebiaocaidan>label {
+.divA_divA_divB>label {
     position: relative;
     left: 20px;
     display: flex;
@@ -85,38 +169,40 @@ a:active {
     font-size: 30px;
 }
 
-.xialajianto {
+.divA_divA_divB_input_spanA {
     position: absolute;
-    top: 8px;
-    right: 30px;
-    font-size: 24px;
-    color: #87E2FF;
-    transition: 0.3s
+    top: 10px;
+    right: 24px;
+    font-size: 22px;
+    color: var(--input_color2);
+    transition: transform 0.4s;
 }
 
-.caidanneirong {
+.divA_divA_divB_divA {
     position: relative;
     left: 40px;
     height: 0;
     overflow: hidden;
     font-size: 20px;
-    transition: 0.3s;
+    transition: height 0.4s;
 }
 
-.dibulan {
+.divC {
     width: 100vw;
     height: 50px;
     float: left;
     box-shadow: 0px 0px 5px #000;
-    color: #555;
+    color: var(--color);
+    font-size: 25px;
     text-align: center;
-    background-color: #fff;
+    line-height: 50px;
+    background-color: var(--bg);
 }
 
-.neirong {
+.divB {
     width: 100vw;
     height: calc(100vh - 50px);
-    background-color: #B0F7FF;
+    background-color: var(--bg3);
     position: absolute;
     top: 50px;
     z-index: -1;
@@ -124,20 +210,20 @@ a:active {
     overflow-y: scroll;
 }
 
-.neirong .hengxiangtupian {
+.divB .divB_divA {
     width: calc(100vw - 10px);
     float: left;
     margin: 5px;
     margin-bottom: 0;
 }
 
-.neirong .hengxiangtupian img {
+.divB .divB_divA img {
     border-radius: 10px;
     width: calc(100vw - 10px);
     height: auto;
 }
 
-.neirong .chuizhitupiana {
+.divB .divB_divB {
     width: calc(50vw - 7.5px);
     float: left;
     margin: 5px;
@@ -145,45 +231,45 @@ a:active {
     margin-top: 0;
 }
 
-.neirong .chuizhitupianb {
+.divB .divB_divC {
     width: calc(50vw - 7.5px);
     float: left;
     margin-right: 5px;
 }
 
-.neirong .chuizhitupiana img,
-.neirong .chuizhitupianb img {
+.divB .divB_divB img,
+.divB .divB_divC img {
     border-radius: 10px;
     width: calc(50vw - 7.5px);
     height: auto;
 }
 
-input#liebiaoanjian:checked~.liebiao {
+input#divA_inputA:checked~.divA_divA {
     width: 70vw;
 }
 
-input#liebiaoanjian:checked+label span {
+input#divA_inputA:checked+label span {
     width: 100vw;
     opacity: 0.5;
     height: 100vh;
 }
 
-input#benzhanwangye:checked~.caidanneirong {
-    height: calc(4 * 30px);
+input#divA_divA_divB_inputA:checked~.divA_divA_divB_divA {
+    height: calc(5 * 30px);
 }
 
-input#benzhanwangye:checked+label .xialajianto {
-    transform: rotate(180deg);
-    top: 13px;
-    color: #5C8AFF;
-}
-
-input#qitawangye:checked~.caidanneirong {
+input#divA_divA_divB_inputB:checked~.divA_divA_divB_divA {
     height: calc(1 * 30px);
 }
 
-input#qitawangye:checked+label .xialajianto {
+input#divA_divA_divB_inputC:checked~.divA_divA_divB_divA {
+    height: calc(11 * 30px);
+}
+
+input#divA_divA_divB_inputA:checked+label .divA_divA_divB_input_spanA,
+input#divA_divA_divB_inputB:checked+label .divA_divA_divB_input_spanA,
+input#divA_divA_divB_inputC:checked+label .divA_divA_divB_input_spanA {
     transform: rotate(180deg);
-    top: 13px;
-    color: #5C8AFF;
+    transform: matrix(50%);
+    color: var(--input_color3);
 }

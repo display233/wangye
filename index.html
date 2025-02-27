@@ -9,72 +9,106 @@
 </head>
 
 <body>
-    <div class="dingbulan">
-        <input type="checkbox" id="liebiaoanjian">
-        <label for="liebiaoanjian">
-            <span class="liebiaoyinying"></span>
-            <div class="liebiaotubiao"></div>
+    <div class="divA">
+        <input type="checkbox" id="divA_inputA">
+        <label for="divA_inputA">
+            <span class="divA_inputA_spanA"></span>
+            <div class="divA_inputA_divA"></div>
         </label>
-        <div class="liebiao">
-            <div class="liebiaobiaoti">链接跳转</div>
-            <div class="liebiaocaidan">
-                <input type="checkbox" id="benzhanwangye">
-                <label for="benzhanwangye">
-                    <span>本站网页</span>
-                    <span class="xialajianto">▼</span>
+        <input type="checkbox" class="divA_inputB">
+        <span class="divA_inputB_span">夜间模式</span>
+            <script>
+                document.getElementsByClassName('divA_inputB')[0].addEventListener('click', () => {
+                    let checkbox = document.getElementsByClassName('divA_inputB')[0]
+                    let Root = document.querySelector(':root')
+                    if (checkbox.checked == true) {
+                        Root.style.setProperty('--bg', '#222')
+                        Root.style.setProperty('--bg2', '#111')
+                        Root.style.setProperty('--bg3', '#aaa')
+                        Root.style.setProperty('--input_bg', '#ddd')
+                        Root.style.setProperty('--input_bg2', '#ccc')
+                        Root.style.setProperty('--input_color', '#333')
+                        Root.style.setProperty('--input_color3', '#000')
+                        Root.style.setProperty('--color', '#ccc')
+                    } else {
+                        Root.style.setProperty('--bg', '#fff')
+                        Root.style.setProperty('--bg2', '#9FA3B3')
+                        Root.style.setProperty('--bg3', '#B0F7FF')
+                        Root.style.setProperty('--input_bg', '#555')
+                        Root.style.setProperty('--input_bg2', '#333')
+                        Root.style.setProperty('--input_color', '#fff')
+                        Root.style.setProperty('--input_color3', '#282828')
+                        Root.style.setProperty('--color', '#000')
+                    }
+                })
+            </script>
+        <div class="divA_divA">
+            <div class="divA_divA_divA">链接跳转</div>
+            <div class="divA_divA_divB">
+                <input type="checkbox" id="divA_divA_divB_inputA">
+                <label for="divA_divA_divB_inputA">
+                    <span>HTML相关网站</span>
+                    <span class="divA_divA_divB_input_spanA">▼</span>
                 </label>
-                <div class="caidanneirong">
-                    <a href="ysjjs.html">印刷价计算</a><br>
-                    <a href="bbbs.html">宝宝巴士</a><br>
-                    <a href="jsq.html">计算器</a><br>
-                    <a href="gkb.html">功课表</a>
+                <div class="divA_divA_divB_divA">
+                    <a href="https://www.runoob.com">菜鸟教程</a><br>
+                    <a href="https://postimages.org">图片托管</a><br>
+                    <a href="https://www.k7dj.com">音乐外链</a><br>
+                    <a href="https://github.com">github</a><br />
+                    <a href="https://host.retiehe.com">热铁盒网页托管</a>
                 </div>
             </div>
-            <div class="liebiaocaidan">
-                <input type="checkbox" id="qitawangye">
-                <label for="qitawangye">
-                    <span>其他网页</span>
-                    <span class="xialajianto">▼</span>
+            <div class="divA_divA_divB">
+                <input type="checkbox" id="divA_divA_divB_inputB">
+                <label for="divA_divA_divB_inputB">
+                    <span>游戏百科</span>
+                    <span class="divA_divA_divB_input_spanA">▼</span>
                 </label>
-                <div class="caidanneirong">
-                    <a href="https://www.runoob.com/">菜鸟教程</a>
+                <div class="divA_divA_divB_divA">
+                    <a href="https://zh.minecraft.wiki">我的世界wiki</a>
+                </div>
+            </div>
+            <div class="divA_divA_divB">
+                <input type="checkbox" id="divA_divA_divB_inputC">
+                <label for="divA_divA_divB_inputC">
+                    <span>网页小创意</span>
+                    <span class="divA_divA_divB_input_spanA">▼</span>
+                </label>
+                <div class="divA_divA_divB_divA">
+                    <a href="https://b23.tv/DrlcBmL">纯搬运,跳转至作者b站</a><br />
+                    <a href="网页小创意/xuan_zhuan_fang_kuai.html">旋转方块</a><br />
+                    <a href="网页小创意/xuan_zhuan_wen_zi.html">旋转文字</a><br />
+                    <a href="网页小创意/fa_guang_fang_kuai.html">发光方块</a><br />
+                    <a href="网页小创意/jian_bian_tiao.html">渐变条</a><br />
+                    <a href="网页小创意/chu_zu_che.html">出租车</a><br />
+                    <a href="网页小创意/deng_long.html">灯笼</a><br />
+                    <a href="网页小创意/yue_bing.html">月饼</a><br />
+                    <a href="网页小创意/kai_guan.html">开关</a><br />
+                    <a href="网页小创意/pao_pao.html">泡泡</a><br />
+                    <a href="网页小创意/xia_xue.html">下雪</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="neirong">
-        <div class="hengxiangtupian">
-            <img src="https://i.postimg.cc/pL71dCBs/1.jpg" alt="">
-            <img src="https://i.postimg.cc/rs8fHP8w/3.jpg" alt="">
-            <img src="https://i.postimg.cc/V6PGqNpM/4.jpg" alt="">
-            <img src="https://i.postimg.cc/1RvprtNF/10.jpg" alt="">
+    <div class="divB">
+        <div class="divB_divA">
+            <img src="https://iw233.cn/api.php?sort=pc" alt="">
         </div>
-        <div class="chuizhitupiana">
-            <img src="https://i.postimg.cc/ZRKWW8HM/9.jpg" alt="">
-            <img src="https://i.postimg.cc/yNTJ6QmR/8.jpg" alt="">
-            <img src="https://i.postimg.cc/PqHpjswh/7.jpg" alt="">
-            <img src="https://i.postimg.cc/dQNyTxzm/6.jpg" alt="">
-            <img src="https://i.postimg.cc/MKcj0Ywk/5.jpg" alt="">
-            <img src="https://i.postimg.cc/NfW2drGK/4.jpg" alt="">
-            <img src="https://i.postimg.cc/WzyqLdMf/3.jpg" alt="">
-            <img src="https://i.postimg.cc/Qd19wxV0/2.jpg" alt="">
-            <img src="https://i.postimg.cc/CKC8BLgz/19.jpg" alt="">
+        <div class="divB_divB">
+            <img src="https://iw233.cn/api.php?sort=random" alt="">
+            <img src="https://iw233.cn/api.php?sort=xing" alt="">
+            <img src="https://iw233.cn/api.php?sort=yin" alt="">
+            <img src="https://iw233.cn/api.php?sort=iw233" alt="">
         </div>
-        <div class="chuizhitupianb">
-            <img src="https://i.postimg.cc/RFXndsqm/18.jpg" alt="">
-            <img src="https://i.postimg.cc/TwRDrMdQ/17.png" alt="">
-            <img src="https://i.postimg.cc/rp511NSy/16.jpg" alt="">
-            <img src="https://i.postimg.cc/Gm8J2Cty/15.jpg" alt="">
-            <img src="https://i.postimg.cc/3wQpx0zs/14.jpg" alt="">
-            <img src="https://i.postimg.cc/hjrVw4yH/13.jpg" alt="">
-            <img src="https://i.postimg.cc/x8pMfxS5/12.jpg" alt="">
-            <img src="https://i.postimg.cc/rsw5L67z/11.jpg" alt="">
-            <img src="https://i.postimg.cc/RF9cXJR7/1.jpg" alt="">
+        <div class="divB_divC">
+            <img src="https://api.iw233.cn/api.php?sort=random" alt="">
+            <img src="https://iw233.cn/api.php?sort=top" alt="">
+            <img src="https://iw233.cn/api.php?sort=cat" alt="">
+            <img src="https://iw233.cn/api.php?sort=mp" alt="">
         </div>
-        <div class="dibulan">
-            这里要写什么???
+        <div class="divC">
+            <a href="log_in.html">神秘链接</a>
         </div>
     </div>
 </body>
-
 </html>
