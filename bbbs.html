@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>宝宝巴士</title>
+    <link rel="stylesheet" href="bbbs.css">
+</head>
+
+<body>
+    <audio id="yinpin" src="http://music.163.com/song/media/outer/url?id=566442223.mp3"></audio>
+    <div class="beijing">
+        <input type="checkbox" id="bofangzantinganjian">
+        <label for="bofangzantinganjian" onclick="bofangzanting()">
+            <span class="bofangzantingtubiao"></span>
+        </label>
+        <input type="checkbox" id="bofangliebiaoanjian">
+        <label for="bofangliebiaoanjian">
+            <span class="bofangliebiaoyinying"></span>
+            <span class="bofangliebiaotubiao"></span>
+        </label>
+        <div class="tupianqukuai">
+            <img class="tupian" src="https://i.postimg.cc/wv458SpQ/image.webp" alt="">
+        </div>
+        <div class="bofangliebiao" onchange="gequqiehuan()">
+            <ul>
+                <li>
+                    <input type="radio" id="shangcesuo" name="gequxuanze" value="上厕所">
+                    <label for="shangcesuo">上厕所</label>
+                </li>
+                <li>
+                    <input type="radio" id="shuyazi" name="gequxuanze" value="数鸭子">
+                    <label for="shuyazi">数鸭子</label>
+                </li>
+                <li>
+                    <input type="radio" id="dingdingdang" name="gequxuanze" value="叮叮当">
+                    <label for="dingdingdang">叮叮当</label>
+                </li>
+                <li>
+                    <input type="radio" id="xiaoluohao" name="gequxuanze" value="小螺号">
+                    <label for="xiaoluohao">小螺号</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    let yinpin = document.getElementById("yinpin")
+
+    function bofangzanting() {
+        let bofangzantinganjian = document.getElementById("bofangzantinganjian").checked
+        if (bofangzantinganjian == false) {
+            yinpin.play()
+        } else {
+            yinpin.pause()
+        }
+    }
+
+    function gequqiehuan() {
+        let bofangzantinganjian = document.getElementById("bofangzantinganjian")
+        let bofangliebiaoanjian = document.getElementById("bofangliebiaoanjian")
+        let gequxuanze = document.getElementsByName("gequxuanze")
+        for (let i = 0, k = gequxuanze.length; i < k; i++) {
+            if (gequxuanze[i].checked) {
+                if (gequxuanze[i].value == "上厕所") {
+                    bofangliebiaoanjian.checked = false
+                    bofangzantinganjian.checked = true
+                    yinpin.src = "http://music.163.com/song/media/outer/url?id=566442223.mp3"
+                    yinpin.pause()
+                    yinpin.play()
+                    break
+                } else if (gequxuanze[i].value == "数鸭子") {
+                    bofangliebiaoanjian.checked = false
+                    bofangzantinganjian.checked = true
+                    yinpin.src = "http://music.163.com/song/media/outer/url?id=566442172.mp3"
+                    yinpin.pause()
+                    yinpin.play()
+                    break
+                } else if (gequxuanze[i].value == "叮叮当") {
+                    bofangliebiaoanjian.checked = false
+                    bofangzantinganjian.checked = true
+                    yinpin.src = "http://music.163.com/song/media/outer/url?id=566442178.mp3"
+                    yinpin.pause()
+                    yinpin.play()
+                    break
+                } else if (gequxuanze[i].value == "小螺号") {
+                    bofangliebiaoanjian.checked = false
+                    bofangzantinganjian.checked = true
+                    yinpin.src = "http://music.163.com/song/media/outer/url?id=566436180.mp3"
+                    yinpin.pause()
+                    yinpin.play()
+                    break
+                }
+            }
+        }
+    }
+</script>
+
+</html>

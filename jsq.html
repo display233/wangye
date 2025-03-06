@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>计算器</title>
+  
+  <link rel="stylesheet" href="jsq.css">
+  <script src="math.min.js"></script>
+</head>
+
+<body>
+   <div class="divbj">
+      <form>
+         <div class="divyy">
+            <audio apreload autoplay id="yp" src="http://music.163.com/song/media/outer/url?id=1952112969.mp3" onpause="ztpd()"></audio>
+            <select id="bflb" onchange="qhyy()">
+               <option>播放列表</option>
+               <option>Go Again</option>
+               <option>Keep You Mine</option>
+               <option>Circles</option>
+            </select>
+         </div>
+      </form>
+   </div>
+   <div class="divbj">
+      <div class="divpp">
+         <input type="button" value="开始播放" onclick="ksbf()" id="ksbf">
+      </div>
+   </div>
+   <div class="diva">
+      <div class="divb">
+         <form>
+            <div class="divc">
+               <input type="button" name="divc">
+            </div>
+            <div>
+               <input type="button" value="AC" onclick="divc.value =''">
+               <input type="button" value="DE" onclick="divc.value = divc.value.slice(0,-1)">
+               <input type="button" value="." onclick="divc.value +='.'">
+               <input type="button" value="/" onclick="divc.value +='/'">
+            </div>
+            <div>
+               <input type="button" value="7" onclick="divc.value +='7'">
+               <input type="button" value="8" onclick="divc.value +='8'">
+               <input type="button" value="9" onclick="divc.value +='9'">
+               <input type="button" value="*" onclick="divc.value +='*'">
+            </div>
+            <div>
+               <input type="button" value="4" onclick="divc.value +='4'">
+               <input type="button" value="5" onclick="divc.value +='5'">
+               <input type="button" value="6" onclick="divc.value +='6'">
+               <input type="button" value="-" onclick="divc.value +='-'">
+            </div>
+            <div>
+               <input type="button" value="1" onclick="divc.value +='1'">
+               <input type="button" value="2" onclick="divc.value +='2'">
+               <input type="button" value="3" onclick="divc.value +='3'">
+               <input type="button" value="+" onclick="divc.value +='+'">
+            </div>
+            <div>
+               <input type="button" value="00" onclick="divc.value +='00'">
+               <input type="button" value="0" onclick="divc.value +='0'">
+               <input type="button" value="=" class="ysj" onclick="divc.value = math.evaluate(divc.value)">
+            </div>
+         </form>
+      </div>
+   </div>
+</body>
+<script>
+   document.addEventListener("WeixinJSBridgeReady", function(){
+   document.getElementById("yp").play()
+})
+   document.addEventListener("click", function(){
+   document.getElementById("yp").play()
+})
+   let yp = document.getElementById("yp")
+   let bfwb = document.getElementById("yp").ended
+   let bflb = document.getElementById("bflb")
+function ztpd(){
+   if (bflb.value == "播放列表") {
+      yp.src = "http://music.163.com/song/media/outer/url?id=1381706037.mp3"
+      bflb.value = "Keep You Mine"
+   } else if (bflb.value == "Go Again"){
+      yp.src = "http://music.163.com/song/media/outer/url?id=1381706037.mp3"
+      bflb.value = "Keep You Mine"
+   }else if(bflb.value == "Keep You Mine"){
+      yp.src = "http://music.163.com/song/media/outer/url?id=1447773945.mp3"
+      bflb.value = "Circles"
+   }else if(bflb.value == "Circles"){
+      yp.src = "http://music.163.com/song/media/outer/url?id=1952112969.mp3"
+      bflb.value = "Go Again"
+   }
+   yp.play()
+}
+function qhyy(){
+   if (bflb.value == "播放列表"){
+      yp.src = "http://music.163.com/song/media/outer/url?id=1952112969.mp3"
+      bflb.value = "Go Again"
+   }else if (bflb.value == "Go Again"){
+      yp.src = "http://music.163.com/song/media/outer/url?id=1952112969.mp3"
+   }else if(bflb.value == "Keep You Mine"){
+      yp.src = "http://music.163.com/song/media/outer/url?id=1381706037.mp3"
+   }else if(bflb.value == "Circles"){
+      yp.src = "http://music.163.com/song/media/outer/url?id=1447773945.mp3"
+   }
+   yp.play()
+}
+function ksbf(){
+   let ksbf = document.getElementById("ksbf")
+   if (bflb.value == "播放列表") {
+      yp.src = "http://music.163.com/song/media/outer/url?id=1381706037.mp3"
+      bflb.value = "Keep You Mine"
+   }
+   yp.play()
+   ksbf.value = ""
+   ksbf.style.width="0"
+   ksbf.style.height="0"
+}
+</script>
+</html>

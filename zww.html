@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<title>印刷价计算</title>
+	<link rel="stylesheet" href="template">
+	<link rel="stylesheet" type="text/css" href="ysjjs.css">
+	<script src="math.min.js"></script>
+</head>
+    <body>
+    <div class="divbj">
+    <div class="inputbotton">
+        <input type="button" value="黑体字" id="htza"><button onclick="htza.value='黑体字:是'">是</button><button onclick="htza.value='黑体字:否'">否</button><br>
+        <input type="button" value="国际音标" id="gjyb"><button onclick="gjyb.value='国际音标:是'">是</button><button onclick="gjyb.value='国际音标:否'">否</button><br>
+    </div>
+    <div>
+        <select id="wzaa" class="wzaa">
+           <option>纯外文</option>
+           <option>中外文</option>
+           <option>三种文字</option>
+           <option>四种文字</option>
+           <option>五种文字</option>
+           <option>六种文字</option>
+           <option>七及以上种文字</option>
+        </select><br>
+        <select id="bzaa" class="bzaa">
+           <option>6~10磅字</option>
+           <option>12磅字</option>
+        </select><br>
+        <input id="ms" maxlength="8" placeholder="面数"><br>
+        <input id="hs" maxlength="8" placeholder="行数"><br>
+        <input id="bxkd" maxlength="8" placeholder="版心宽度"><br>
+        <input id="ks" maxlength="8" placeholder="开数"><br>
+        <button onclick="calc()">计算</button>
+    </div>
+    <div class="divgs">
+        <p>公式:</p>
+        <p>
+            <span id="msa">面数</span>×
+            <span id="hsa">行数</span>×
+            <span id="bxkda">版心宽度</span>×
+            <span id="dja">单价</span>
+            <span id="jjbla"></span>
+            <span id="jgbla"></span>=
+            <span id="zja">总价</span>(元)
+        </p>
+    </div>
+    <div class="divjsjg">
+        <input id="sra" maxlength="10"></input>
+        <select id="sf">
+            <option>+</option>
+            <option>-</option>
+            <option>×</option>
+            <option>÷</option>
+        </select>
+        <input id="srb" maxlength="10"></input>
+        <button onclick="sdjs()">=</button>
+        <span id="xsjg"><span>
+    </div>
+    </div>
+    </body>
+        <script>
+	    function calc(){
+                let inputA = document.getElementById("ms")
+                let inputB = document.getElementById("hs")
+                let inputC = document.getElementById("bxkd")
+                let inputD = document.getElementById("ks")
+                let htza = document.getElementById("htza")
+                let gjyb = document.getElementById("gjyb")
+                let wzaa = document.getElementById("wzaa")
+                let bzaa = document.getElementById("bzaa")
+                let valA = parseFloat(inputA.value)
+                let valB = parseFloat(inputB.value)
+                let valC = parseFloat(inputC.value)
+                let valD = parseFloat(inputD.value)
+                let clA = math.bignumber(32)
+                let clB = math.bignumber(0.05)
+                let clC = math.bignumber(0.065)
+                let clblA = math.bignumber(0.1)
+                let clblB = math.bignumber(0.2)
+                let clblC = math.bignumber(0.3)
+                let clblD = math.bignumber(0.4)
+                let ms = math.bignumber(valA)
+                let hs = math.bignumber(valB)
+                let bxkd = math.bignumber(valC)
+                let ks = math.bignumber(valD)
+                let jjbl = math.bignumber(1)
+                let dj = 0
+                if (bzaa.value == "12磅字") {
+                   if(wzaa.value == "纯外文"){
+                       dj = math.bignumber(0.03)
+                   }else if(wzaa.value == "中外文"){
+                       dj = math.bignumber(0.04)
+                   }else if(wzaa.value == "三种文字"){
+                       dj = clB
+                   }else if(wzaa.value == "四种文字"){
+                       dj = clB
+                       jjbl = math.chain(jjbl)
+                           .add(clblA)
+                           .done()
+                   }else if (wzaa.value == "五种文字") {
+                       dj = clB
+                       jjbl = math.chain(jjbl)
+                           .add(clblB)
+                           .done()
+                   }else if (wzaa.value == "六种文字") {
+                       dj = clB
+                       jjbl = math.chain(jjbl)
+                           .add(clblC)
+                           .done()
+                   }else if (wzaa.value == "七及以上种文字") {
+                       dj = clB
+                       jjbl = math.chain(jjbl)
+                           .add(clblD)
+                           .done()
+                   }
+                }else {
+                    if (wzaa.value == "纯外文") {
+                        dj = math.bignumber(0.037)
+                    } else if (wzaa.value == "中外文") {
+                        dj = math.bignumber(0.048)
+                    } else if (wzaa.value == "三种文字") {
+                        dj = clC
+                    } else if (wzaa.value == "四种文字") {
+                        dj = clC
+                        jjbl = math.chain(jjbl)
+                            .add(clblA)
+                            .done()
+                    } else if (wzaa.value == "五种文字") {
+                        dj = clC
+                        jjbl = math.chain(jjbl)
+                            .add(clblB)
+                            .done()
+                    } else if (wzaa.value == "六种文字") {
+                        dj = clC
+                        jjbl = math.chain(jjbl)
+                            .add(clblC)
+                            .done()
+                    } else if (wzaa.value == "七及以上种文字") {
+                        dj = clC
+                        jjbl = math.chain(jjbl)
+                            .add(clblD)
+                            .done()
+                    }
+                }
+                if (htza.value == "黑体字:是"){
+                    jjbl = math.chain(jjbl)
+                        .add(clblA)
+                        .done()
+                }
+                if (gjyb.value == "国际音标:是"){
+                    jjbl = math.chain(jjbl)
+                        .add(clblA)
+                        .done()
+                }
+                let jgbl = math.chain(clA)
+                          .divide(ks)
+                          .done()
+                let bla = math.chain(ms)
+                          .multiply(hs)
+                          .done()
+                let blb = math.chain(bla)
+                          .multiply(bxkd)
+                          .done()
+                let blc = math.chain(blb)
+                          .multiply(dj)
+                          .done()
+                let zj = blc
+                if (jjbl == "1"){
+                    jjbla.innerText = ''
+                }else{
+                    jjbla.innerText = '×'+jjbl
+                    zj = math.chain(zj)
+                        .multiply(jjbl)
+                        .done()
+                }
+                if (jgbl == "NaN"){
+                    jgbla.innerText = ''
+                }else if(jgbl == "1"){
+                    jgbla.innerText = ''
+                }else{
+                    jgbla.innerText = '×'+jgbl
+                    zj = math.chain(zj)
+                        .multiply(jgbl)
+                        .done()
+                }
+                msa.innerText = ms
+                hsa.innerText = hs
+                bxkda.innerText = bxkd
+                dja.innerText = dj
+                zja.innerText = zj
+            }
+            function sdjs(){
+                let hqa = document.getElementById("sra")
+                let hqb = document.getElementById("srb")
+                let sf = document.getElementById("sf")
+                let zhfdsa = parseFloat(hqa.value)
+                let zhfdsb = parseFloat(hqb.value)
+                let sra = math.bignumber(zhfdsa)
+                let srb = math.bignumber(zhfdsb)
+                let zdjs = 0
+                if(sf.value==="+"){
+                    zdjs = math.chain(sra)
+                          .add(srb)
+                          .done()
+                }else if(sf.value==="-"){
+                    zdjs = math.chain(sra)
+                          .subtract(srb)
+                          .done()
+                }else if(sf.value==="×"){
+                    zdjs = math.chain(sra)
+                          .multiply(srb)
+                          .done()
+                }else if(sf.value==="÷"){
+                    zdjs = math.chain(sra)
+                          .divide(srb)
+                          .done()
+                }
+                xsjg.innerText = zdjs
+            }
+        </script>
+</html>
